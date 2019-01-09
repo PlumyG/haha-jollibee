@@ -1,0 +1,193 @@
+<!--
+	Author: Lee Hiu Wa		SID:17004248S
+			Leung Tin Yau 	SID:17063771S
+			Liu Sze Nga		SID:17005386S
+			Man Wing Long 	SID:17037452S
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		body{background-image: url('images/bgform.jpg');color:#FC0;font-weight:bold;}
+		.col-1{width:8.33%}
+		.col-2 {width: 16.66%;}
+		.col-3 {width: 25%;}
+		.col-4 {width: 33.33%;}
+		.col-5 {width: 41.66%;}
+		.col-6 {width: 50%;}
+		.col-7 {width: 58.33%;}
+		.col-8 {width: 66.66%;}
+		.col-9 {width: 75%;}
+		.col-10 {width: 83.33%;}
+		.col-11 {width: 91.66%;}
+		.col-12 {width: 100%;}
+		[class*="col-"]{
+			float:left;
+			padding-top:15px;
+			margin-left:2px;
+		}
+		.maincontainer{
+			min-width:800px;
+			border-radius:20px;
+			border:1px solid black;
+			margin:20px 8.33%;
+			padding-bottom:30px;
+			background-image:url('images/bgpizza.jpg');
+			background-size:100%;
+		}
+		.box{
+			border-radius:8px;
+			height:25px;
+			width:350px;
+		}
+		label{
+			font-size:17px;
+			margin-left:45px;
+		}
+		input{
+			margin-bottom:10px;
+			font-size:17px;
+		}
+		.field{
+			width:80px;
+			border-radius:5px;
+		}
+		button{
+			margin-left:50px;
+			padding:15px 25px;
+			border-radius:15px;
+			cursor:pointer;
+			color:white;
+			box-shadow: 1px 1px 8px #888888;
+		}
+		button:hover{
+			opacity:0.8;
+		}
+		#confirmb{background-color:#3C0;}
+		#resetb{background-color:#F00;}
+	</style>
+</head>
+<body>
+	<script src="js/validRegister.js"></script>
+	<?php
+		session_start();
+	?>
+	<div class="col-10 maincontainer">
+		<form action="php/singup.php" method="post">
+			<div class="col-3">
+				<label for="firstname">First Name</label>
+			</div>
+			<div class="col-6">
+				<input type="text" class="box" id="input_fn" 
+				name="fname" onkeyup="validfirstname();" placeholder="First Name" required>*
+			</div>	
+			<div class="col-2" id="valid_fn"></div>
+			<div class="col-3">
+				<label for="lastname">Last Name</label>
+			</div>
+			<div class="col-6">
+				<input type="text" class="box" id="input_ln" 
+				name="lname" onkeyup="validlastname();" placeholder="Last Name" required>*
+			</div>
+			<div class="col-2" id="valid_ln"></div>
+			<div class="col-3">
+				<label for="username">Username</label>
+			</div>
+			<div class="col-6">
+				<input type="text" id="username" name="uname" class="box" onkeyup="validusername();" placeholder="input your user account name......." required>*
+			</div>
+			<div class="col-2" id="valid_uname"></div>
+			<!--<div class="col-1" id="checkusername">
+				<button type="button" id="checkuname" style="background-color:lightgreen;color:black;">CheckUserName</button>
+			</div>-->
+			<script src="js/jquery-3.2.1.min.js"></script>	
+			<!--<script>
+				$('#checkuname').click(function(){
+					$.ajax({
+						type:"POST",
+						url:"php/checkusername.php",
+						data:{$('#username')}
+					}).done(function(){
+						alert("HELLO");
+					});	
+				});
+			</script>-->
+			<!--<script>
+				function callchecking(){
+				alert("WHY");
+					$.ajax({
+						type: "POST";
+						url:'php/checkusername.php',
+						data{$(#username)}	
+					});
+				}
+			</script>-->
+			<div class="col-3">
+				<label for="password">Password</label>
+			</div>
+			<div class="col-6">
+				<input type="password" id="passwordinput" 
+				name="pw" onkeyup="validpassword();" class="box" placeholder="********" required>*
+			</div>
+			<div class="col-2" id="valid_pw"></div>
+			<div class="col-3">
+				<label for="confirmpassword">Confirm Password</label>
+			</div>
+			<div class="col-6">
+				<input type="password" class="box" id="confirm_password" onkeyup="checkpassword();" placeholder="********" required>*
+			</div>
+			<div class="col-2" id="valid-indication">
+			</div>
+			<div class="col-3">
+				<label for="email">Email</label>
+			</div>
+			<div class="col-6">
+				<input type="email" class="box" id="input_email" 
+				name="usermail" onkeyup="validemail();"placeholder="xxx@xxx.com" required>*
+			</div>
+			<div class="col-2"id="valid_email"></div>
+			<div class="col-3">
+				<label for="phone">Mobile Phone</label>	
+			</div>
+			<div class="col-6">
+				<input type="text" id="input_num" 
+				name="userphone" onkeyup="validnumbers();"class="box" placeholder="0000 0000" pattern="[96235]{1}[0-9]{7}" required>*
+			</div>
+			<div class="col-2" id="valid_num">
+			</div>		
+			<div class="col-3">
+				<label for="Birthday">Date of Birth</label>
+			</div>
+			<div class="col-6">
+				<input type="date" class="box">
+			</div>
+			<div class="col-2"></div>
+			<div class="col-3">
+				<label for="gender">Gender</label>
+			</div>
+			<div class="col-6">
+				<input type="radio" name="sex" value="M">Male &nbsp;&nbsp;&nbsp;
+				<input type="radio" name="sex" value="F">Female &nbsp;&nbsp;&nbsp;
+				<input type="radio" name="sex" value="N" checked>Unknown
+			</div>
+			<div class="col-2"></div>
+			<div class="col-3">
+				<label for="address">Address</label>
+			</div>
+			<div class="col-6">
+				<input id="autocomplete" class="box" placeholder="Enter your address"
+				name="useradd" onFocus="geolocate()" type="text" required></input>*
+			</div>	
+			<div class="col-2"></div>
+			<div class="col-3"></div>
+			<div class="col-2"></div>
+            <div class="col-12">
+            	<button type="submit" id="confirmb">Submit</button>
+                <button type="reset" id="resetb" onclick="resetlabels();">Reset</button>
+            </div>
+		</form>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+
+#logoutimg{
+	display:none;
+}
+#logoutimg:hover{
+	cursor:pointer;
+	opacity:0.5;
+}
+
+
