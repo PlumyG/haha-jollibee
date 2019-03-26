@@ -6,9 +6,9 @@
 	$password=$_POST['pw'];
 	
 	$sql="SELECT * FROM userinfo WHERE UserName='$username' AND Password='$password'";
-	$result = mysqli_query($conn,$sql);
-	if (!$row=mysqli_fetch_assoc($result)){
-		echo "<script>alert('your username or password is either incorrect!!');</script>";
+	$result = sqlsrv_query($conn,$sql);
+	if (!$row=sqlsrv_fetch_array($result)){
+		echo "<script>alert('your username or pas7sword is either incorrect!!');</script>";
 	}else{
 		$cookie_name1="user";
 		$cookie_username=$username;
