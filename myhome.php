@@ -104,7 +104,7 @@
             </div>
           </form>
         </div>
-        <a class="navbar-brand" href="myhome.php" id="homelink">HaHaPizza</a>
+        <a class="navbar-brand" href="myhome.php" id="homelink">Jollibee</a>
         <button
           class="navbar-toggler navbar-toggler-right"
           type="button"
@@ -129,9 +129,6 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="event-home.php">Event</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="career.php">Career</a>
             </li>
           </ul>
         </div>
@@ -246,7 +243,7 @@
       <!--end of animation-->
       <!-- Page Content -->
       <div class="container">
-        <h1 class="my-4">Welcome to Haha Pizza</h1>
+        <h1 class="my-4">Welcome to Jollibee</h1>
         <!-- Portfolio Section -->
         <div class="row" id="my-content-p1">
           <div
@@ -362,7 +359,7 @@
                 Our Features
               </h2>
               <p class="left-slide-effect" style="margin-left:-1080px;">
-                HahaPizza
+                Jollibee
               </p>
               <ul class="left-slide-effect" style="margin-left:-1080px;">
                 <li>
@@ -413,7 +410,7 @@
     <footer class="py-5" style="margin-top:2px;background-color:#111111">
       <div class="container">
         <p class="m-0 text-center text-white">
-          Copyright &copy; HaHaPizza 2017
+          Copyright &copy; Jollibee 2017
         </p>
       </div>
       <!-- /.container -->

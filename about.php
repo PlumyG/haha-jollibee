@@ -510,7 +510,7 @@
                   </div>
                </form>
             </div>
-            <a class="navbar-brand" href="myhome.php" id="homelink">HaHaPizza</a>
+            <a class="navbar-brand" href="myhome.php" id="homelink">Jollibee</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -520,7 +520,6 @@
                   <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
                   <li class="nav-item"><a class="nav-link" href="menu.php">Menu</a></li>
                   <li class="nav-item"><a class="nav-link" href="event-home.php">Event</a></li>
-                  <li class="nav-item"><a class="nav-link" href="career.php">Career</a></li>
                </ul>
             </div>
          </div>
@@ -537,7 +536,7 @@
             <li class="breadcrumb-item active">About</li>
          </ol>
          <!-- Intro Content -->
-         <h1>HaHaPizza</h1>
+         <h1>Jollibee</h1>
          <script src="utils.js"></script>
          <script src="flip-card.js"></script>
          <div class="row">
@@ -737,7 +736,7 @@
       <!-- Footer -->
       <footer class="py-5" style="margin-top:2px;background-color:#111111">
          <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; HaHaPizza 2017</p>
+            <p class="m-0 text-center text-white">Copyright &copy; Jollibee 2017</p>
          </div>
          <!-- /.container -->
       </footer>
