@@ -19,7 +19,23 @@
       <!-- Navigation -->
       <nav class="navbar fixed-top navbar-expand-lg navbar-dark fixed-top" style="background-color:black;">
          <div class="container">
-            <span id="login-button" style="cursor:pointer;" onclick="document.getElementById('id01').style.display='block';" class="navbar-brand">Login</span>
+               <?php session_start(); if($_SESSION['login']=="true"): ?>
+               <span
+               id="login-button"
+               style="cursor:pointer;"
+               onclick="javascript:location.href='php/logout.php'"
+               class='navbar-brand'>
+                 Logout
+               </span>
+             <?php else:?>
+               <span
+               id="login-button"
+               style="cursor:pointer;"
+               onclick="document.getElementById('id01').style.display='block';"
+               class='navbar-brand'>
+                 Login
+               </span>
+             <?php endif;?>
             <div id="id01" class="modal">
                <form class="modal-content" action="php/login.php" method="post">
                   <div class="container" style="padding:15px 35px;">
@@ -38,17 +54,17 @@
                   </div>
                </form>
             </div>
-            <a class="navbar-brand" href="myhome.html" id="homelink">HaHaPizza</a>
+            <a class="navbar-brand" href="myhome.php" id="homelink">HaHaPizza</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                <ul class="navbar-nav ml-auto">
-                  <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                  <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                  <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
-                  <li class="nav-item"><a class="nav-link" href="event-home.html">Event</a></li>
-                  <li class="nav-item"><a class="nav-link" href="career.html">Career</a></li>
+                  <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+                  <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+                  <li class="nav-item"><a class="nav-link" href="menu.php">Menu</a></li>
+                  <li class="nav-item"><a class="nav-link" href="event-home.php">Event</a></li>
+                  <li class="nav-item"><a class="nav-link" href="career.php">Career</a></li>
                </ul>
             </div>
          </div>
@@ -61,7 +77,7 @@
          </h1>
          <ol class="breadcrumb">
             <li class="breadcrumb-item">
-               <a href="index.html">Home</a>
+               <a href="index.php">Home</a>
             </li>
             <li class="breadcrumb-item active">Event</li>
          </ol>
@@ -69,7 +85,7 @@
             <div class="fs-slider" id="fs-slider">
                <figure>
                   <img src="images/evet1.jpg" alt="image01" />
-                  <a href="event-post-1.html">
+                  <a href="event-post-1.php">
                      <figcaption>
                         <h3>Happy Hours</h3>
                         <p style="font-size:17px;">
@@ -80,7 +96,7 @@
                </figure>
                <figure>
                   <img src="images/evet2.jpeg" alt="image02" />
-                  <a href="event-post-2.html">
+                  <a href="event-post-2.php">
                      <figcaption>
                         <h3>Birthday Discount</h3>
                         <p style="font-size:17px;">
@@ -91,7 +107,7 @@
                </figure>
                <figure>
                   <img src="images/evet3.jpg" alt="image03" />
-                  <a href="event-post-3.html">
+                  <a href="event-post-3.php">
                      <figcaption>
                         <h3>Afternoon Tea</h3>
                         <p style="font-size:17px;">
@@ -121,7 +137,7 @@
                   <div class="card-body">
                      <h2 class="card-title">Happy Hours</h2>
                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                     <a href="event-post-1.html" class="btn btn-primary">Read More &rarr;</a>
+                     <a href="event-post-1.php" class="btn btn-primary">Read More &rarr;</a>
                   </div>
                   <div class="card-footer text-muted">
                      Posted on January 1, 2017 
@@ -133,7 +149,7 @@
                   <div class="card-body">
                      <h2 class="card-title">Birthday Discount</h2>
                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                     <a href="event-post-2.html" class="btn btn-primary">Read More &rarr;</a>
+                     <a href="event-post-2.php" class="btn btn-primary">Read More &rarr;</a>
                   </div>
                   <div class="card-footer text-muted">
                      Posted on January 1, 2017 
@@ -145,7 +161,7 @@
                   <div class="card-body">
                      <h2 class="card-title">Afteroon Tea</h2>
                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                     <a href="event-post-3.html" class="btn btn-primary">Read More &rarr;</a>
+                     <a href="event-post-3.php" class="btn btn-primary">Read More &rarr;</a>
                   </div>
                   <div class="card-footer text-muted">
                      Posted on January 1, 2017 

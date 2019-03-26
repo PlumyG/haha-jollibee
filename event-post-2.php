@@ -19,7 +19,23 @@
       <!-- Navigation -->
       <nav class="navbar fixed-top navbar-expand-lg navbar-dark fixed-top" style="background-color:black;">
          <div class="container">
-            <span id="login-button" style="cursor:pointer;" onclick="document.getElementById('id01').style.display='block';" class="navbar-brand">Login</span>
+               <?php session_start(); if($_SESSION['login']=="true"): ?>
+               <span
+               id="login-button"
+               style="cursor:pointer;"
+               onclick="javascript:location.href='php/logout.php'"
+               class='navbar-brand'>
+                 Logout
+               </span>
+             <?php else:?>
+               <span
+               id="login-button"
+               style="cursor:pointer;"
+               onclick="document.getElementById('id01').style.display='block';"
+               class='navbar-brand'>
+                 Login
+               </span>
+             <?php endif;?>
             <div id="id01" class="modal">
                <form class="modal-content" action="php/login.php" method="post">
                   <div class="container" style="padding:15px 35px;">
@@ -38,17 +54,17 @@
                   </div>
                </form>
             </div>
-            <a class="navbar-brand" href="myhome.html" id="homelink">HaHaPizza</a>
+            <a class="navbar-brand" href="myhome.php" id="homelink">HaHaPizza</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                <ul class="navbar-nav ml-auto">
-                  <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                  <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                  <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
-                  <li class="nav-item"><a class="nav-link" href="event-home.html">Event</a></li>
-                  <li class="nav-item"><a class="nav-link" href="career.html">Career</a></li>
+                  <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+                  <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+                  <li class="nav-item"><a class="nav-link" href="menu.php">Menu</a></li>
+                  <li class="nav-item"><a class="nav-link" href="event-home.php">Event</a></li>
+                  <li class="nav-item"><a class="nav-link" href="career.php">Career</a></li>
                </ul>
             </div>
          </div>
@@ -56,22 +72,22 @@
       <!-- Page Content -->
       <div class="container">
       <!-- Page Heading/Breadcrumbs -->
-      <h1 class="mt-4 mb-3">Happy Hours
+      <h1 class="mt-4 mb-3">Birthday Discount
       </h1>
       <ol class="breadcrumb">
          <li class="breadcrumb-item">
-            <a href="index.html">Home</a>
+            <a href="index.php">Home</a>
          </li>
          <li class="breadcrumb-item">
-            <a href="event-home.html">Event</a>
+            <a href="event-home.php">Event</a>
          </li>
-         <li class="breadcrumb-item active">Happy Hours</li>
+         <li class="breadcrumb-item active">Birthday Discount</li>
       </ol>
       <div class="row">
          <!-- Post Content Column -->
          <div class="col-lg-8">
             <!-- Preview Image -->
-            <img class="img-fluid rounded" src="images/event1.jpg" alt="">
+            <img class="img-fluid rounded" src="images/event2.jpg" alt="">
             <hr>
             <!-- Date/Time -->
             <p>Posted on January 1, 2017 at 12:00 PM</p>
