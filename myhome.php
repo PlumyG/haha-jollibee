@@ -118,6 +118,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+                  <?php
+                     if($_SESSION['login']=="true")
+                        echo '<li class="nav-item"><a class="nav-link" href="personal.php">' . $_COOKIE["user"] . '</a></li>';
+                  ?>
             <li class="nav-item">
               <a class="nav-link" href="about.php">About</a>
             </li>
