@@ -8,7 +8,6 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>Account Information</title>
       <link href="css/loginstyle.css" rel="stylesheet">
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,7 +30,7 @@
                class='navbar-brand'>
                  Logout
                </span>
-             <?php else:?>                
+             <?php else:?>
                <span
                id="login-button"
                style="cursor:pointer;"
@@ -64,10 +63,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                <ul class="navbar-nav ml-auto">
-               <?php
-                  if($_SESSION['login']=="true")
-                     echo '<li class="nav-item"><a class="nav-link" href="personal.php">' . $_COOKIE["user"] . '</a></li>';
-               ?>
+                  <?php
+                     if($_SESSION['login']=="true")
+                        echo '<li class="nav-item"><a class="nav-link" href="personal.php">' . $_COOKIE["user"] . '</a></li>';
+                  ?>
                   <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
                   <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
                   <li class="nav-item"><a class="nav-link" href="menu.php">Menu</a></li>
@@ -81,53 +80,64 @@
       <div class="container">
          <!-- Page Heading/Breadcrumbs -->
          <h1 class="mt-4 mb-3">
-            Account Information
+            Your Orders
 			</h1>
          <ol class="breadcrumb">
             <li class="breadcrumb-item">
                <a href="index.php">Home</a>
             </li>
-            <li class="breadcrumb-item active">Account Information</li>
+            <li class="breadcrumb-item">
+               <a href="personal.php">Account Information</a>
+            </li>
+            <li class="breadcrumb-item active">Your Orders</li>
          </ol>
-
-         
          <!-- Content Row -->
-         <div class="row" style="margin-left:50px; margin-bottom:10px;"> 
-         <a href="status.php" class="myButton">Order Status</a>
-            </div>
-            <!-- Contact Details Column -->
-            <style type="text/css">
-                .tg  {border-collapse:collapse;border-spacing:0;}
-                .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 19px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-                .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 19px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-                .tg .tg-lqy6{text-align:right;vertical-align:top}
-                .tg .tg-0lax{text-align:left;vertical-align:top}
-            </style>
-            <div class="col-lg-4 mb-4 tg">
-                <table> 
-                    <tr>
-                        <th>User Name:</th>
-                        <th>adminA</th>
-                    </tr>
-                    <tr>
-                        <td>Full Name:</td>
-                        <td>Chan Big Man</td>
-                    </tr>
-                    <tr>
-                        <td>Phone Number:</td>
-                        <td>12345678</td>
-                    </tr>
-                    <tr>
-                        <td>Email Address:</td>
-                        <td>testing@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td>Address:</td>
-                        <td>Earth 101</td>
-                    </tr>
-                </table>
-            </div>
-         </div>
+        <div class="row">
+        <table class="redTable">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Order Time</th>
+                    <th>Status</th>
+                    <th>Amount</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <td colspan="4">
+                        <div class="links"><a href="#">&laquo;</a> <a class="active" href="#">1</a> <a href="#">&raquo;</a></div>
+                    </td>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                <td>
+                    <button class="collapsible btn btn-link">002</button>
+                    <div class = "content">
+                        <p>Hamburger * 1</p>
+                        <p>Soft Drink * 4</p>
+                    </div>
+                </td>
+                <td>2019/4/8 08:37 AM</td>
+                <td>Waiting for delivery</td>
+                <td>$300</td>
+                </tr>
+                <tr>
+                <td>
+                    <button class="collapsible btn btn-link">001</button>
+                    <div class = "content">
+                        <p>Chicken Wing * 1</p>
+                        <p>Soft Drink * 4</p>
+                    </div>
+                </td>
+                <td>2019/3/31 01:36 AM</td>
+                <td>Delivered</td>
+                <td>$205</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+         
       </div>
       <!-- /.container -->
       <footer class="py-5" style="margin-top:2px;background-color:#111111">
@@ -148,29 +158,81 @@
 
 
 <style>
-   .myButton {
-      -moz-box-shadow:inset 0px 39px 0px -24px #e67a73;
-      -webkit-box-shadow:inset 0px 39px 0px -24px #e67a73;
-      box-shadow:inset 0px 39px 0px -24px #e67a73;
-      background-color:#e4685d;
-      -moz-border-radius:4px;
-      -webkit-border-radius:4px;
-      border-radius:4px;
-      border:1px solid #ffffff;
-      display:inline-block;
-      cursor:pointer;
-      color:#ffffff;
-      font-family:Arial;
-      font-size:15px;
-      padding:6px 37px;
-      text-decoration:none;
-      text-shadow:0px 1px 0px #b23e35;
-   }
-   .myButton:hover {
-      background-color:#eb675e;
-   }
-   .myButton:active {
-      position:relative;
-      top:1px;
-   }
+    /* table style */
+    table.redTable {
+    border: 2px solid #A40808;
+    background-color: #EEE7DB;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    }
+    table.redTable td, table.redTable th {
+    border: 1px solid #AAAAAA;
+    padding: 3px 2px;
+    }
+    table.redTable tbody td {
+    font-size: 13px;
+    }
+    table.redTable tr:nth-child(even) {
+    background: #F5C8BF;
+    }
+    table.redTable thead {
+    background: #A40808;
+    }
+    table.redTable thead th {
+    font-size: 19px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    border-left: 2px solid #A40808;
+    }
+    table.redTable thead th:first-child {
+    border-left: none;
+    }
+
+    table.redTable tfoot {
+    font-size: 13px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background: #A40808;
+    }
+    table.redTable tfoot td {
+    font-size: 13px;
+    }
+    table.redTable tfoot .links {
+    text-align: right;
+    }
+    table.redTable tfoot .links a{
+    display: inline-block;
+    background: #FFFFFF;
+    color: #A40808;
+    padding: 2px 8px;
+    border-radius: 5px;
+    }
+
+
+    /* Style the collapsible content. Note: hidden by default */
+    .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    }
 </style>
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+        content.style.display = "none";
+        } else {
+        content.style.display = "block";
+        }
+    });
+    }
+</script>
