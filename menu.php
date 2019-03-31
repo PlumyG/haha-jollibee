@@ -185,7 +185,7 @@
       </nav>
       <!-- end of Navigation -->
       <aside class="col-md-2" style="position:fixed;right:12px;background-color:white'">
-         <form action="https://www.paypal.com/cgi-bin/webscr" method="POST">
+         <form action="checkout.php" method="POST">
             <div id="smartcart"></div>
             <input name="business" value="dipumedayil@gmail.com" type="hidden">            
             <input name="currency_code" value="USD" type="hidden">
