@@ -169,30 +169,30 @@
             <!-- Slide One - Set the background image for this slide in the line below -->
             <div
               class="carousel-item active"
-              style="background-image: url('images/Pizza_Images12.jpg')"
+              style="background-image: url('images/2.jpg')"
             >
               <div class="carousel-caption d-none d-md-block">
-                <h3>Pizza1</h3>
+                <h3>Set 1</h3>
                 <p>This is a description for the first slide.</p>
               </div>
             </div>
             <!-- Slide Two - Set the background image for this slide in the line below -->
             <div
               class="carousel-item"
-              style="background-image: url('images/pizza_basil_cheese_vegetables_71025_1920x1080.jpg')"
+              style="background-image: url('images/1.jpg')"
             >
               <div class="carousel-caption d-none d-md-block">
-                <h3>Pizza2</h3>
+                <h3>Set 2</h3>
                 <p>This is a description for the second slide.</p>
               </div>
             </div>
             <!-- Slide Three - Set the background image for this slide in the line below -->
             <div
               class="carousel-item"
-              style="background-image: url('images/pizza.jpg')"
+              style="background-image: url('images/3.png')"
             >
               <div class="carousel-caption d-none d-md-block">
-                <h3>Pizza3</h3>
+                <h3>Set 3</h3>
                 <p>This is a description for the third slide.</p>
               </div>
             </div>
@@ -255,7 +255,7 @@
             style="margin-left:-2080px;"
           >
             <div class="card h-100">
-              <img class="card-img-top" src="images/rest1.jpg" alt="" />
+              <img class="card-img-top" src="images/11.jpg" alt="" />
               <div class="card-body">
                 <h4 class="card-title">
                   STYLEISH.
@@ -271,7 +271,7 @@
           </div>
           <div class="col-lg-4 col-sm-6 portfolio-item left-slide-effect">
             <div class="card h-100">
-              <img class="card-img-top" src="images/rest2.jpg" alt="" />
+              <img class="card-img-top" src="images/12.jpg" alt="" />
               <div class="card-body">
                 <h4 class="card-title">
                   CREATIVE.
@@ -285,7 +285,7 @@
           </div>
           <div class="col-lg-4 col-sm-6 portfolio-item left-slide-effect">
             <div class="card h-100">
-              <img class="card-img-top" src="images/rest3.jpg" alt="" />
+              <img class="card-img-top" src="images/13.jpg" alt="" />
               <div class="card-body">
                 <h4 class="card-title">
                   RELEVANT.
@@ -306,7 +306,7 @@
             style="margin-left:-2080px;"
           >
             <div class="card h-100">
-              <img class="card-img-top" src="images/slide3.jpg" alt="" />
+              <img class="card-img-top" src="images/6.png" alt="" />
               <div class="card-body">
                 <h4 class="card-title">
                   Yummy.
@@ -320,7 +320,7 @@
           </div>
           <div class="col-lg-4 col-sm-6 portfolio-item left-slide-effect">
             <div class="card h-100">
-              <img class="card-img-top" src="images/slide4.jpeg" alt="" />
+              <img class="card-img-top" src="images/7.png" alt="" />
               <div class="card-body">
                 <h4 class="card-title">
                   Tasty
@@ -334,7 +334,7 @@
           </div>
           <div class="col-lg-4 col-sm-6 portfolio-item left-slide-effect">
             <div class="card h-100">
-              <img class="card-img-top" src="images/slide5.jpg" alt="" />
+              <img class="card-img-top" src="images/8.png" alt="" />
               <div class="card-body">
                 <h4 class="card-title">
                   Delicious
@@ -384,7 +384,7 @@
             <div class="col-lg-6 fade-in-effect">
               <img
                 class="img-fluid rounded"
-                src="images/pizzawhat.jpg"
+                src="images/14.jpg"
                 alt=""
               />
             </div>
