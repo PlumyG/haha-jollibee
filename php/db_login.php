@@ -1,5 +1,5 @@
 <?php
-         $serverName = "DESKTOP-6PK6SQJ\SQLEXPRESS"; //serverName\instanceName
+         $serverName = ""; //serverName\instanceName
          $connectionInfo = array( "Database"=>"Jollibee", "UID"=>"admin", "PWD"=>"asdf", "CharacterSet" => "UTF-8");
          $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
