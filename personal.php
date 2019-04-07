@@ -23,7 +23,7 @@
       <!-- Navigation -->
       <nav class="navbar fixed-top navbar-expand-lg navbar-dark fixed-top" style="background-color:black;">
          <div class="container">
-               <?php session_start(); if($_SESSION['login']=="true"): ?>
+               <?php session_start(); if(isset($_SESSION['login'])): ?>
                <span
                id="login-button"
                style="cursor:pointer;"
@@ -65,7 +65,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                <ul class="navbar-nav ml-auto">
                <?php
-                  if($_SESSION['login']=="true")
+                  if(isset($_SESSION['login']))
                      echo '<li class="nav-item"><a class="nav-link" href="personal.php">' . $_COOKIE["user"] . '</a></li>';
                ?>
                   <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>

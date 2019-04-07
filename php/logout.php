@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$_SESSION["login"] = "false";
+	unset($_SESSION["login"]);
 	echo "<script>
 		alert('You are logged out from the account');		
 		location.href='../myhome.php';
