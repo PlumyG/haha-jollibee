@@ -11,12 +11,21 @@
 	$useraddress=$_POST['useradd'];
 	
 	$sql_user="SELECT * FROM userinfo WHERE UserName='$username'";
-	$result_user = mysqli_query($conn,$sql_user);
-	if (!$row=mysqli_fetch_assoc($result_user)){
+	$result_user = sqlsrv_query($conn, $sql_user);
+	if (!$row=sqlsrv_fetch_array($result_user)){
 	$sql="INSERT INTO userinfo (UserName,FirstName,LastName,Password,Email,PhoneNo,Address,Gender) 
 	VALUES('$username','$firstname','$lastname','$password','$usermail','$phonesno',
 	'$useraddress','$gender')";
-	$result = mysqli_query($conn,$sql);
+
+	$result = sqlsrv_query($conn, $sql);
+	if( !$result_user ) {
+		echo "Query could not run.<br />";
+		die( print_r( sqlsrv_errors(), true));
+	 } else if (!$result) {
+		echo "Query could not run.<br />";
+		die( print_r( sqlsrv_errors(), true));
+	 }
+	 
 	echo "<script>alert('Register Successfully!!');</script>";
 	echo "<script>window.close();</script>";
 	}else{

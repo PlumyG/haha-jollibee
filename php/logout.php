@@ -1,7 +1,8 @@
 <?php
 	session_start();
-	$cookie_name="user";
-	setcookie($cookie_name,"",time()-3600);
-	echo "<script>alert('Bye~bye~!!');</script>";
-	header("Location: ../index.html");	
+	unset($_SESSION["login"]);
+	echo "<script>
+		alert('You are logged out from the account');		
+		location.href='../myhome.php';
+		</script>";
 ?>

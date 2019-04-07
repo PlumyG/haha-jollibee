@@ -5,6 +5,7 @@
 			Man Wing Long 	SID:17037452S
 
 -->
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -71,7 +72,7 @@
       <dl class="list nigiri">
          <!-- left side menu for recepit -->
          <dt>Menu</dt>
-         <dd><a href="#my-pizza-menu">Pizza</a></dd>
+         <!--<dd><a href="#my-pizza-menu">Pizza</a></dd>-->
          <dd><a href="#my-pasta-menu">Pasta</a></dd>
          <dd><a href="#my-drink-menu">Drinks</a></dd>
          <dd><a href="#my-snack-menu">Snacks</a></dd>
@@ -129,7 +130,23 @@
       <!-- Navigation -->
       <nav class="navbar fixed-top navbar-expand-lg navbar-dark fixed-top" style="background-color:black;">
          <div class="container">
-            <span id="login-button" style="cursor:pointer;" onclick="document.getElementById('id01').style.display='block';" class="navbar-brand">Login</span>
+               <?php if(isset($_SESSION['login'])): ?>
+               <span
+               id="login-button"
+               style="cursor:pointer;"
+               onclick="javascript:location.href='php/logout.php'"
+               class='navbar-brand'>
+                 Logout
+               </span>
+             <?php else:?>
+               <span
+               id="login-button"
+               style="cursor:pointer;"
+               onclick="document.getElementById('id01').style.display='block';"
+               class='navbar-brand'>
+                 Login
+               </span>
+             <?php endif;?>
             <div id="id01" class="modal">
                <form class="modal-content" action="php/login.php" method="post">
                   <div class="container" style="padding:15px 35px;">
@@ -148,24 +165,27 @@
                   </div>
                </form>
             </div>
-            <a class="navbar-brand" href="myhome.html" id="homelink">HaHaPizza</a>
+            <a class="navbar-brand" href="myhome.php" id="homelink">Jollibee</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                <ul class="navbar-nav ml-auto">
-                  <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                  <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                  <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
-                  <li class="nav-item"><a class="nav-link" href="event-home.html">Event</a></li>
-                  <li class="nav-item"><a class="nav-link" href="career.html">Career</a></li>
+                  <?php
+                     if(isset($_SESSION['login']))
+                        echo '<li class="nav-item"><a class="nav-link" href="personal.php">' . $_COOKIE["user"] . '</a></li>';
+                  ?>
+                  <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+                  <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+                  <li class="nav-item"><a class="nav-link" href="menu.php">Menu</a></li>
+                  <li class="nav-item"><a class="nav-link" href="event-home.php">Event</a></li>
                </ul>
             </div>
          </div>
       </nav>
       <!-- end of Navigation -->
       <aside class="col-md-2" style="position:fixed;right:12px;background-color:white'">
-         <form action="https://www.paypal.com/cgi-bin/webscr" method="POST">
+         <form action="checkout.php" method="POST">
             <div id="smartcart"></div>
             <input name="business" value="dipumedayil@gmail.com" type="hidden">            
             <input name="currency_code" value="USD" type="hidden">
@@ -183,152 +203,17 @@
             <h5>Always wait for you</h5>
          <ol class="breadcrumb">
             <li class="breadcrumb-item">
-               <a href="index.html">Home</a>
+               <a href="index.php">Home</a>
             </li>
             <li class="breadcrumb-item active">Menu</li>
          </ol>
       </div>
       <div id="my-pizza-menu">
          <div class="container">
-            <h3 class="my-4">Pizza</h3>
+           
             <!--my nav-->
             <!-- Portfolio Section -->
-            <div class="row" id="my-content-p1">
-               <div class="col-lg-3 col-sm-6 portfolio-item">
-                  <div class="card h-100">
-                     <div class="sc-product-item thumbnail">
-                        <img class="card-img-top" data-name="product_image" id="bh-1" src="images/menu-pizza1.jpg" alt="">
-                        <div class="card-body">
-                           <h5 data-name="product_name">Pizza 1</h5>
-                           <input name="product_price" value="2990.50" type="hidden" />
-                           <input name="product_id" value="12" type="hidden" />
-                           <p>Meal description</p>
-                           <br/><br/>
-                           <div class="my-cart-btn">
-                              <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-lg-3 col-sm-6 portfolio-item">
-                  <div class="card h-100">
-                     <div class="sc-product-item thumbnail">
-                        <img class="card-img-top bh-image" data-name="product_image" id="bh-2" src="images/menu-pizza2.jpg" alt="">
-                        <div class="card-body">
-                           <h5 data-name="product_name">Product 2</h5>
-                           <input name="product_price" value="2990.50" type="hidden" />
-                           <input name="product_id" value="12" type="hidden" />
-                           <p>Meal description</p>
-                           <br/><br/>
-                           <div class="my-cart-btn">
-                              <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-lg-3 col-sm-6 portfolio-item">
-                  <div class="card h-100">
-                     <div class="sc-product-item thumbnail">
-                        <img class="card-img-top bh-image" data-name="product_image" id="bh-3" src="images/menu-pizza3.jpg" alt="">
-                        <div class="card-body">
-                           <h5 data-name="product_name">Product 3</h5>
-                           <input name="product_price" value="2990.50" type="hidden" />
-                           <input name="product_id" value="12" type="hidden" />
-                           <p>Meal description</p>
-                           <br/><br/>
-                           <div class="my-cart-btn">
-                              <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-lg-3 col-sm-6 portfolio-item">
-                  <div class="card h-100">
-                     <div class="sc-product-item thumbnail">
-                        <img class="card-img-top bh-image" data-name="product_image" id="bh-4" src="images/menu-pizza4.jpg" alt="">
-                        <div class="card-body">
-                           <h5 data-name="product_name">Product 4</h5>
-                           <input name="product_price" value="2990.50" type="hidden" />
-                           <input name="product_id" value="12" type="hidden" />
-                           <p>Meal description</p>
-                           <br/><br/>
-                           <div class="my-cart-btn">
-                              <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-lg-3 col-sm-6 portfolio-item">
-                  <div class="card h-100">
-                     <div class="sc-product-item thumbnail">
-                        <img class="card-img-top bh-image" data-name="product_image" id="bh-5" src="images/menu-pizza5.jpg" alt="">
-                        <div class="card-body">
-                           <h5 data-name="product_name">Product 5</h5>
-                           <input name="product_price" value="2990.50" type="hidden" />
-                           <input name="product_id" value="12" type="hidden" />
-                           <p>Meal description</p>
-                           <br/><br/>
-                           <div class="my-cart-btn">
-                              <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-lg-3 col-sm-6 portfolio-item">
-                  <div class="card h-100">
-                     <div class="sc-product-item thumbnail">
-                        <img class="card-img-top bh-image" data-name="product_image" id="bh-6" src="images/menu-pizza6.jpg" alt="">
-                        <div class="card-body">
-                           <h5 data-name="product_name">Product 6</h5>
-                           <input name="product_price" value="2990.50" type="hidden" />
-                           <input name="product_id" value="12" type="hidden" />
-                           <p>Meal description</p>
-                           <br/><br/>
-                           <div class="my-cart-btn">
-                              <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-lg-3 col-sm-6 portfolio-item">
-                  <div class="card h-100">
-                     <div class="sc-product-item thumbnail">
-                        <img class="card-img-top bh-image" data-name="product_image" id="bh-7" src="images/menu-pizza7.jpg" alt="">
-                        <div class="card-body">
-                           <h5 data-name="product_name">Product 7</h5>
-                           <input name="product_price" value="2990.50" type="hidden" />
-                           <input name="product_id" value="12" type="hidden" />
-                           <p>Meal description</p>
-                           <br/><br/>
-                           <div class="my-cart-btn">
-                              <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-lg-3 col-sm-6 portfolio-item">
-                  <div class="card h-100">
-                     <div class="sc-product-item thumbnail">
-                        <img class="card-img-top bh-image" data-name="product_image" id="bh-8" src="images/menu-pizza8.jpg" alt="">
-                        <div class="card-body">
-                           <h5 data-name="product_name">Product 8</h5>
-                           <input name="product_price" value="2990.50" type="hidden" />
-                           <input name="product_id" value="12" type="hidden" />
-                           <p>Meal description</p>
-                           <br/><br/>
-                           <div class="my-cart-btn">
-                              <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
+            
                </div>
             </div>
          </div>
@@ -403,177 +288,7 @@
                            </div>
                         </div>
                      </div>
-                  </div>
-                  <div class="col-lg-3 col-sm-6 portfolio-item fade-in-effect">
-                     <div class="card h-100">
-                        <div class="sc-product-item thumbnail">
-                           <img class="card-img-top bh-image" data-name="product_image" id="bh-13" src="images/menu-pasta5.jpg" alt="">
-                           <div class="card-body">
-                              <h5 data-name="product_name">Product 13</h5>
-                              <input name="product_price" value="2990.50" type="hidden" />
-                              <input name="product_id" value="12" type="hidden" />
-                              <p>Meal description</p>
-                              <br/><br/>
-                              <div class="my-cart-btn">
-                                 <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-sm-6 portfolio-item fade-in-effect">
-                     <div class="card h-100">
-                        <div class="sc-product-item thumbnail">
-                           <img class="card-img-top bh-image" data-name="product_image" id="bh-14" src="images/menu-pasta6.jpg" alt="">
-                           <div class="card-body">
-                              <h5 data-name="product_name">Product 14</h5>
-                              <input name="product_price" value="2990.50" type="hidden" />
-                              <input name="product_id" value="12" type="hidden" />
-                              <p>Meal description</p>
-                              <br/><br/>
-                              <div class="my-cart-btn">
-                                 <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-sm-6 portfolio-item fade-in-effect">
-                     <div class="card h-100">
-                        <div class="sc-product-item thumbnail">
-                           <img class="card-img-top bh-image" data-name="product_image" id="bh-15" src="images/menu-pasta8.gif" alt="">
-                           <div class="card-body">
-                              <h5 data-name="product_name">Product 15</h5>
-                              <input name="product_price" value="2990.50" type="hidden" />
-                              <input name="product_id" value="12" type="hidden">
-                              <p>Meal description</p>
-                              <br/><br/>
-                              <div class="my-cart-btn">
-                                 <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-sm-6 portfolio-item fade-in-effect">
-                     <div class="card h-100">
-                        <div class="sc-product-item thumbnail">
-                           <img class="card-img-top bh-image" id="bh-16" data-name="product_image" src="images/menu-pasta9.jpg" alt="">
-                           <div class="card-body">
-                              <h5 data-name="product_name">Product 16</h5>
-                              <input name="product_price" value="2990.50" type="hidden" />
-                              <input name="product_id" value="12" type="hidden">
-                              <p>Meal description</p>
-                              <br/><br/>
-                              <div class="my-cart-btn">
-                                 <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-sm-6 portfolio-item fade-in-effect">
-                     <div class="card h-100">
-                        <div class="sc-product-item thumbnail">
-                           <img class="card-img-top bh-image"  data-name="product_image" id="bh-17" src="images/menu-pasta10.jpg" alt="">
-                           <div class="card-body">
-                              <h5 data-name="product_name">Product 17</h5>
-                              <input name="product_price" value="2990.50" type="hidden" />
-                              <input name="product_id" value="12" type="hidden">
-                              <p>Meal description</p>
-                              <br/><br/>
-                              <div class="my-cart-btn">
-                                 <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-sm-6 portfolio-item fade-in-effect">
-                     <div class="card h-100">
-                        <div class="sc-product-item thumbnail">
-                           <img class="card-img-top bh-image" data-name="product_image" id="bh-18" src="images/menu-pasta11.jpeg" alt="">
-                           <div class="card-body">
-                              <h5 data-name="product_name">Product 18</h5>
-                              <input name="product_price" value="2990.50" type="hidden" />
-                              <input name="product_id" value="12" type="hidden">
-                              <p>Meal description</p>
-                              <br/><br/>
-                              <div class="my-cart-btn">
-                                 <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-sm-6 portfolio-item fade-in-effect">
-                     <div class="card h-100">
-                        <div class="sc-product-item thumbnail">
-                           <img class="card-img-top bh-image" id="bh-19" data-name="product_image" src="images/menu-pasta12.jpeg" alt="">
-                           <div class="card-body">
-                              <h5 data-name="product_name">Product 19</h5>
-                              <input name="product_price" value="2990.50" type="hidden" />
-                              <input name="product_id" value="12" type="hidden">
-                              <p>Meal description</p>
-                              <br/><br/>
-                              <div class="my-cart-btn">
-                                 <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-sm-6 portfolio-item fade-in-effect">
-                     <div class="card h-100">
-                        <div class="sc-product-item thumbnail">
-                           <img class="card-img-top bh-image" data-name="product_image" id="bh-20" src="images/menu-pasta9.jpeg" alt="">
-                           <div class="card-body">
-                              <h5 data-name="product_name">Product 20</h5>
-                              <input name="product_price" value="2990.50" type="hidden" />
-                              <input name="product_id" value="12" type="hidden">
-                              <p>Meal description</p>
-                              <br/><br/>
-                              <div class="my-cart-btn">
-                                 <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-sm-6 portfolio-item fade-in-effect">
-                     <div class="card h-100">
-                        <div class="sc-product-item thumbnail">
-                           <img class="card-img-top bh-image" data-name="product_image" id="bh-21" src="images/menu-pasta14.jpg" alt="">
-                           <div class="card-body">
-                              <h5 data-name="product_name">Product 21</h5>
-                              <input name="product_price" value="2990.50" type="hidden" />
-                              <input name="product_id" value="12" type="hidden">
-                              <p>Meal description</p>
-                              <br/><br/>
-                              <div class="my-cart-btn">
-                                 <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-sm-6 portfolio-item fade-in-effect">
-                     <div class="card h-100">
-                        <div class="sc-product-item thumbnail">
-                           <img class="card-img-top bh-image" id="bh-22" data-name="product_image" src="images/menu-pasta15.jpg" alt="">
-                           <div class="card-body">
-                              <h5 data-name="product_name">Product 22</h5>
-                              <input name="product_price" value="2990.50" type="hidden" />
-                              <input name="product_id" value="12" type="hidden">
-                              <p>Meal description</p>
-                              <br/><br/>
-                              <div class="my-cart-btn">
-                                 <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
+                  </div>        
                </div>
             </div>
          </div>
@@ -581,57 +296,7 @@
             <div class="container">
                <h3 class="my-4">Drinks</h3>
                <div class="row">
-                  <div class="col-lg-3 col-sm-6 portfolio-item fade-in-effect">
-                     <div class="card h-100">
-                        <div class="sc-product-item thumbnail">
-                           <img class="card-img-top bh-image" data-name="product_image" id="bh-23" src="images/menu-drink1.gif" alt="">
-                           <div class="card-body">
-                              <h5 data-name="product_name">Product 23</h5>
-                              <input name="product_price" value="2990.50" type="hidden" />
-                              <input name="product_id" value="12" type="hidden">
-                              <p>Meal description</p>
-                              <br/><br/>
-                              <div class="my-cart-btn">
-                                 <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-sm-6 portfolio-item fade-in-effect">
-                     <div class="card h-100">
-                        <div class="sc-product-item thumbnail">
-                           <img class="card-img-top bh-image" data-name="product_image" id="bh-24" src="images/menu-drink2.gif" alt="">
-                           <div class="card-body">
-                              <h5 data-name="product_name">Product 24</h5>
-                              <input name="product_price" value="2990.50" type="hidden" />
-                              <input name="product_id" value="12" type="hidden">
-                              <p>Meal description</p>
-                              <br/><br/>
-                              <div class="my-cart-btn">
-                                 <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-sm-6 portfolio-item fade-in-effect">
-                     <div class="card h-100">
-                        <div class="sc-product-item thumbnail">
-                           <img class="card-img-top bh-image" id="bh-25" data-name="product_image" src="images/menu-drink3.jpg" alt="">
-                           <div class="card-body">
-                              <h5 data-name="product_name">Product 25</h5>
-                              <input name="product_price" value="2990.50" type="hidden" />
-                              <input name="product_id" value="12" type="hidden">
-                              <p>Meal description</p>
-                              <br/><br/>
-                              <div class="my-cart-btn">
-                                 <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
+                  
                   <div class="col-lg-3 col-sm-6 portfolio-item fade-in-effect">
                      <div class="card h-100">
                         <div class="sc-product-item thumbnail">
@@ -775,74 +440,10 @@
                         </div>
                      </div>
                   </div>
-                  <div class="col-lg-3 col-sm-6 portfolio-item fade-in-effect">
-                     <div class="card h-100">
-                        <div class="sc-product-item thumbnail">
-                           <img class="card-img-top bh-image" data-name="product_image" id="bh-34" src="images/menu-snack5.jpg" alt="">
-                           <div class="card-body">
-                              <h5 data-name="product_name">Product 34</h5>
-                              <input name="product_price" value="2990.50" type="hidden" />
-                              <input name="product_id" value="12" type="hidden">
-                              <p>Meal description</p>
-                              <br/><br/>
-                              <div class="my-cart-btn">
-                                 <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-sm-6 portfolio-item fade-in-effect">
-                     <div class="card h-100">
-                        <div class="sc-product-item thumbnail">
-                           <img class="card-img-top bh-image" data-name="product_image" id="bh-35" src="images/menu-snack6.jpg" alt="">
-                           <div class="card-body">
-                              <h5 data-name="product_name">Product 35</h5>
-                              <input name="product_price" value="2990.50" type="hidden" />
-                              <input name="product_id" value="12" type="hidden">
-                              <p>Meal description</p>
-                              <br/><br/>
-                              <div class="my-cart-btn">
-                                 <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-sm-6 portfolio-item fade-in-effect">
-                     <div class="card h-100">
-                        <div class="sc-product-item thumbnail">
-                           <img class="card-img-top bh-image" data-name="product_image" id="bh-36" src="images/menu-snack7.jpg" alt="">
-                           <div class="card-body">
-                              <h5 data-name="product_name">Product 36</h5>
-                              <input name="product_price" value="2990.50" type="hidden" />
-                              <input name="product_id" value="12" type="hidden">
-                              <p>Meal description</p>
-                              <br/><br/>
-                              <div class="my-cart-btn">
-                                 <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-sm-6 portfolio-item fade-in-effect">
-                     <div class="card h-100">
-                        <div class="sc-product-item thumbnail">
-                           <img class="card-img-top bh-image" data-name="product_image" id="bh-37" src="images/menu-snack8.gif" alt="">
-                           <div class="card-body">
-                              <h5 data-name="product_name">Product 37</h5>
-                              <input name="product_price" value="2990.50" type="hidden" />
-                              <input name="product_id" value="12" type="hidden">
-                              <p>Meal description</p>
-                              <br/><br/>
-                              <div class="my-cart-btn">
-                                 <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
+               
+            
+             
+           
                </div>
             </div>
          </div>
@@ -856,7 +457,7 @@
       </div>
       <footer class="py-5" style="margin-top:2px;background-color:#111111">
          <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; HaHaPizza 2017</p>
+            <p class="m-0 text-center text-white">Copyright &copy; Jollibee 2017</p>
          </div>
          <!-- /.container -->
       </footer>

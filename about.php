@@ -5,6 +5,7 @@
 			Man Wing Long 	SID:17037452S
 
 -->
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
    <head>
@@ -474,7 +475,23 @@
       <!-- Navigation -->
       <nav class="navbar fixed-top navbar-expand-lg navbar-dark fixed-top" style="background-color:black;">
          <div class="container">
-            <span id="login-button" style="cursor:pointer;"onclick="document.getElementById('id01').style.display='block';" class="navbar-brand">Login</span>
+               <?php if(isset($_SESSION['login'])): ?>
+               <span
+               id="login-button"
+               style="cursor:pointer;"
+               onclick="javascript:location.href='php/logout.php'"
+               class='navbar-brand'>
+                 Logout
+               </span>
+             <?php else:?>
+               <span
+               id="login-button"
+               style="cursor:pointer;"
+               onclick="document.getElementById('id01').style.display='block';"
+               class='navbar-brand'>
+                 Login
+               </span>
+             <?php endif;?>
             <div id="id01" class="modal">
                <form class="modal-content" action="php/login.php" method="post">
                   <div class="container" style="padding:15px 35px;">
@@ -493,17 +510,20 @@
                   </div>
                </form>
             </div>
-            <a class="navbar-brand" href="myhome.html" id="homelink">HaHaPizza</a>
+            <a class="navbar-brand" href="myhome.php" id="homelink">Jollibee</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                <ul class="navbar-nav ml-auto">
-                  <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                  <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                  <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
-                  <li class="nav-item"><a class="nav-link" href="event-home.html">Event</a></li>
-                  <li class="nav-item"><a class="nav-link" href="career.html">Career</a></li>
+                  <?php
+                     if(isset($_SESSION['login']))
+                        echo '<li class="nav-item"><a class="nav-link" href="personal.php">' . $_COOKIE["user"] . '</a></li>';
+                  ?>
+                  <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+                  <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+                  <li class="nav-item"><a class="nav-link" href="menu.php">Menu</a></li>
+                  <li class="nav-item"><a class="nav-link" href="event-home.php">Event</a></li>
                </ul>
             </div>
          </div>
@@ -515,12 +535,12 @@
          </h1>
          <ol class="breadcrumb">
             <li class="breadcrumb-item">
-               <a href="index.html">Home</a>
+               <a href="index.php">Home</a>
             </li>
             <li class="breadcrumb-item active">About</li>
          </ol>
          <!-- Intro Content -->
-         <h1>HaHaPizza</h1>
+         <h1>Jollibee</h1>
          <script src="utils.js"></script>
          <script src="flip-card.js"></script>
          <div class="row">
@@ -720,7 +740,7 @@
       <!-- Footer -->
       <footer class="py-5" style="margin-top:2px;background-color:#111111">
          <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; HaHaPizza 2017</p>
+            <p class="m-0 text-center text-white">Copyright &copy; Jollibee 2017</p>
          </div>
          <!-- /.container -->
       </footer>
