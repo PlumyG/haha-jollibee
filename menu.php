@@ -677,7 +677,7 @@
                                      submitType: 'paypal' // form, paypal, ajax
                                  },
                                  toolbarSettings: {
-                                     checkoutButtonStyle: 'paypal' // default, paypal, image
+                                     checkoutButtonStyle: 'default' // default, paypal, image
                                  }
                              });
          });
